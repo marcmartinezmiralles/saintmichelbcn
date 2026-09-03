@@ -1,6 +1,14 @@
+import heroImg from "@/assets/shows/sielu-1.jpg";
+
 export const Hero = () => {
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden bg-black text-primary-foreground">
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-60"
+        style={{ backgroundImage: `url(${heroImg})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40" aria-hidden />
 
       <div className="relative min-h-screen flex flex-col">
         <div className="flex-1 flex flex-col items-center justify-center px-6 text-center pt-24 pb-32">

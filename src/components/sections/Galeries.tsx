@@ -1,34 +1,47 @@
 import { useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import tourCannes from "@/assets/tour-cannes.jpg";
-import tourMilan from "@/assets/tour-milan.jpg";
-import tourParis from "@/assets/tour-paris.jpg";
-import a1 from "@/assets/archive-1.jpg";
-import a2 from "@/assets/archive-2.jpg";
-import a3 from "@/assets/archive-3.jpg";
-import a4 from "@/assets/archive-4.jpg";
+import sielu1 from "@/assets/shows/sielu-1.jpg";
+import sielu2 from "@/assets/shows/sielu-2.jpg";
+import sielu3 from "@/assets/shows/sielu-3.jpg";
+import estacio1 from "@/assets/shows/estacio-1.jpg";
+import estacio2 from "@/assets/shows/estacio-2.jpg";
+import estacio3 from "@/assets/shows/estacio-3.jpg";
+import estacio4 from "@/assets/shows/estacio-4.jpg";
+import hyatt1 from "@/assets/shows/hyatt-1.jpg";
+import hyatt2 from "@/assets/shows/hyatt-2.jpg";
+import hyatt3 from "@/assets/shows/hyatt-3.jpg";
+import hyatt4 from "@/assets/shows/hyatt-4.jpg";
+import platjadaro1 from "@/assets/shows/platjadaro-1.jpg";
+import platjadaro2 from "@/assets/shows/platjadaro-2.jpg";
 
 const shows = [
   {
     id: "sielu",
     title: "El Sielu",
-    date: "MMXXIV — First Show",
-    cover: tourCannes,
-    images: [a1, a2, a3],
+    date: "MMXXV — Official Presentation",
+    cover: sielu1,
+    images: [sielu1, sielu2, sielu3],
   },
   {
     id: "estacio",
     title: "Estació de França",
-    date: "MMXXIV",
-    cover: tourMilan,
-    images: [a3, a4, a1],
+    date: "MMXXV",
+    cover: estacio1,
+    images: [estacio1, estacio2, estacio3, estacio4],
   },
   {
     id: "hyatt",
-    title: "Hyatt Agency BCN",
-    date: "MMXXIV",
-    cover: tourParis,
-    images: [a2, a4, a3],
+    title: "Hyatt Regency BCN",
+    date: "MMXXV",
+    cover: hyatt1,
+    images: [hyatt1, hyatt2, hyatt3, hyatt4],
+  },
+  {
+    id: "platjadaro",
+    title: "Platja d'Aro",
+    date: "MMXXV",
+    cover: platjadaro1,
+    images: [platjadaro1, platjadaro2],
   },
 ];
 
@@ -55,7 +68,7 @@ export const Galeries = () => {
           </Reveal>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {shows.map((show, i) => (
             <Reveal key={show.id} delay={i * 100}>
               <button
