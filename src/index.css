@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SAINT MICHEL BARCELONA — Monochrome luxury design system */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 0% 0%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 0%;
+
+    --radius: 0;
+
+    /* Editorial tokens */
+    --soft-grey: 0 0% 96%;
+    --frame-grey: 0 0% 88%;
+    --ink: 0 0% 8%;
+
+    --tracking-hero: 0.6em;
+    --tracking-display: 0.35em;
+    --tracking-eyebrow: 0.45em;
+    --tracking-body: 0.05em;
+
+    --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --border: 0 0% 15%;
+    --muted: 0 0% 8%;
+    --muted-foreground: 0 0% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+  ::selection {
+    background: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', 'Bodoni Moda', 'Didot', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+  .font-sans-luxe {
+    font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  .tracking-hero { letter-spacing: var(--tracking-hero); }
+  .tracking-display { letter-spacing: var(--tracking-display); }
+  .tracking-eyebrow { letter-spacing: var(--tracking-eyebrow); }
+
+  .image-frame {
+    background-color: hsl(var(--soft-grey));
+    overflow: hidden;
+  }
+  .image-zoom {
+    transition: transform 1800ms var(--ease-luxe), filter 1800ms var(--ease-luxe);
+  }
+  .group:hover .image-zoom {
+    transform: scale(1.06);
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 1600ms var(--ease-luxe), transform 1600ms var(--ease-luxe);
+    will-change: opacity, transform;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hairline-link {
+    position: relative;
+    display: inline-block;
+  }
+  .hairline-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 600ms var(--ease-luxe);
+  }
+  .hairline-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  @keyframes scroll-pulse {
+    0%, 100% { transform: translateY(0); opacity: 0.4; }
+    50% { transform: translateY(8px); opacity: 1; }
+  }
+  .animate-scroll-pulse { animation: scroll-pulse 2.4s ease-in-out infinite; }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .animate-marquee { animation: marquee 40s linear infinite; }
+}
